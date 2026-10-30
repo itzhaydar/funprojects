@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>CMC (Ci Mu Ci) – Register & Get Your Campaign Flyer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:ital,wght@0,600;0,800;1,600&display=swap" rel="stylesheet">
+<style>
+:root{--g0:#031a0c;--g1:#06301a;--g2:#0b4a27;--gold:#f5c542;--ink:#eafff0;color-scheme:dark;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:radial-gradient(circle at 20% 0,var(--g2),var(--g0) 60%) fixed;color:var(--ink);font-family:Montserrat,system-ui,sans-serif;min-height:100vh}
+header{display:flex;align-items:center;gap:16px;padding:20px 20px 8px;max-width:1100px;margin:auto}
+header svg{width:72px;height:72px;flex:none}
+h1{font-family:Anton,Impact,sans-serif;font-weight:400;font-size:clamp(34px,7vw,56px);margin:0;letter-spacing:2px;line-height:1}
+h1 span{color:var(--gold)}
+.tag{font-size:13px;opacity:.8;margin-top:4px}
+main{display:grid;grid-template-columns:minmax(280px,380px) 1fr;gap:24px;max-width:1100px;margin:auto;padding:16px 20px 40px}
+@media(max-width:800px){main{grid-template-columns:1fr}}
+.card{background:rgba(255,255,255,.05);border:1px solid rgba(245,197,66,.35);border-radius:18px;padding:20px;backdrop-filter:blur(6px)}
+label{display:block;font-size:12px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);margin:14px 0 6px}
+label:first-of-type{margin-top:0}
+input,textarea{width:100%;padding:12px 14px;border-radius:10px;border:1px solid rgba(255,255,255,.2);background:rgba(0,0,0,.35);color:#fff;font:600 15px Montserrat,sans-serif}
+input:focus,textarea:focus{outline:2px solid var(--gold)}
+input[type=file]{padding:10px}
+textarea{resize:vertical;min-height:70px}
+button{width:100%;margin-top:18px;padding:15px;border:0;border-radius:12px;background:linear-gradient(180deg,#ffd75e,#e0a710);color:#062812;font:800 16px Montserrat,sans-serif;letter-spacing:1px;cursor:pointer;text-transform:uppercase}
+button:hover{filter:brightness(1.08)}
+button:disabled{opacity:.5;cursor:not-allowed}
+.stage{display:flex;flex-direction:column;align-items:center;gap:12px}
+canvas{width:100%;max-width:540px;height:auto;border-radius:12px;box-shadow:0 20px 60px rgba(0,0,0,.6),0 0 0 3px var(--gold)}
+.note{font-size:12px;opacity:.7;text-align:center}
+#fallback{display:none;max-width:540px;width:100%;border-radius:12px}
+body{background:radial-gradient(circle at 50% -10%,#117a40 0,transparent 45%),repeating-linear-gradient(45deg,rgba(255,255,255,.018) 0 2px,transparent 2px 22px),linear-gradient(180deg,#05281a,#021008) fixed}
+header{flex-direction:column;text-align:center;padding:34px 20px 10px;gap:10px}
+header svg{width:120px;height:120px;filter:drop-shadow(0 0 22px rgba(245,197,66,.55));animation:fl 4s ease-in-out infinite}
+@keyframes fl{50%{transform:translateY(-6px)}}
+h1{font-size:clamp(46px,11vw,84px);text-shadow:0 4px 24px rgba(0,0,0,.6)}
+.pill{display:inline-block;font-size:11px;font-weight:800;letter-spacing:2px;color:#062812;background:var(--gold);padding:5px 12px;border-radius:99px;text-transform:uppercase}
+.tag{font-size:15px;max-width:520px}
+.card{position:relative;overflow:hidden;background:linear-gradient(160deg,rgba(255,255,255,.09),rgba(255,255,255,.03));box-shadow:0 24px 60px rgba(0,0,0,.45)}
+.card::before{content:"";position:absolute;inset:0 0 auto;height:5px;background:linear-gradient(90deg,#0a7a3a 33%,#fff 33% 66%,#0a7a3a 66%)}
+.card h2{font-family:Anton,Impact,sans-serif;font-weight:400;font-size:28px;letter-spacing:1px;margin:8px 0 2px}
+.sub{font-size:13px;opacity:.75;margin:0 0 18px}
+input,textarea{background:rgba(0,0,0,.4);transition:border-color .2s,box-shadow .2s}
+input:focus,textarea:focus{outline:0;border-color:var(--gold);box-shadow:0 0 0 4px rgba(245,197,66,.2)}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.chips span{font-size:12px;font-weight:800;padding:6px 11px;border-radius:99px;border:1px solid rgba(245,197,66,.5);color:var(--gold);cursor:pointer;user-select:none}
+.chips span:hover{background:var(--gold);color:#062812}
+.drop{display:flex;align-items:center;gap:14px;padding:14px;border:2px dashed rgba(245,197,66,.6);border-radius:14px;cursor:pointer;background:rgba(0,0,0,.25);font-size:14px;font-weight:700}
+.drop:hover{background:rgba(245,197,66,.1)}
+.drop img{display:none;width:64px;height:64px;border-radius:50%;object-fit:cover;border:3px solid var(--gold)}
+button{font-size:17px;padding:17px;box-shadow:0 10px 28px rgba(245,197,66,.3);transition:transform .15s}
+button:active{transform:scale(.98)}
+@media(min-width:801px){.stage{position:sticky;top:20px;align-self:start}}
+footer{text-align:center;font-size:12px;opacity:.6;padding:0 20px 30px}
+</style>
+</head>
+<body>
+<header>
+<div id="hlogo"></div>
+<span class="pill">Official* Candidate Registration</span>
+<h1>CMC <span>(Ci Mu Ci)</span></h1>
+<div class="tag">The party that’s 100% not registered. Pick your seat, drop your face, get your campaign flyer.</div>
+</header>
+<main>
+<section class="card">
+<h2>JOIN THE MOVEMENT</h2>
+<p class="sub">Fill in your details. The flyer builds itself live.</p>
+<label for="name">Your name</label>
+<input id="name" placeholder="e.g. Musa Chineke" maxlength="40">
+<label for="pos">Position</label>
+<input id="pos" placeholder="Chairman, President, Senator…" maxlength="30">
+<div class="chips" id="chips"></div>
+<label for="state">State</label>
+<input id="state" placeholder="Kano, Jigawa, Lagos…" maxlength="24">
+<label for="motto">Motto</label>
+<textarea id="motto" placeholder="Your motto or words of wisdom" maxlength="110"></textarea>
+<label for="pic">Your picture</label>
+<label class="drop" for="pic"><img id="thumb" alt=""><span id="droptxt">📷 Tap to upload your photo</span></label>
+<input id="pic" type="file" accept="image/*" hidden>
+<button id="dl">⬇ Download my flyer (PNG)</button>
+</section>
+<section class="stage">
+<canvas id="c" width="1080" height="1350"></canvas>
+<img id="fallback" alt="Your CMC flyer – press and hold to save">
+<div class="note">Satire only. CMC is a joke party and is not registered with INEC.</div>
+</section>
+</main>
+<footer>*Satire only. CMC is a joke party and is not registered with INEC.</footer>
+<script>
+const LOGO=`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><defs><linearGradient id="gg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffe27a"/><stop offset="1" stop-color="#d49a0a"/></linearGradient><radialGradient id="bg" cx=".5" cy=".4" r=".7"><stop offset="0" stop-color="#14783d"/><stop offset="1" stop-color="#04210f"/></radialGradient></defs>
+<circle cx="100" cy="100" r="96" fill="url(#gg)"/><circle cx="100" cy="100" r="88" fill="url(#bg)"/><circle cx="100" cy="100" r="80" fill="none" stroke="#f5c542" stroke-width="2" stroke-dasharray="3 5"/>
+<g stroke="#f5c542" stroke-width="3" stroke-linecap="round" opacity=".55"><path d="M100 100 L100 22M100 100 L45 45M100 100 L155 45M100 100 L22 100M100 100 L178 100"/></g>
+<path d="M62 138V62l76 76V62" fill="none" stroke="url(#gg)" stroke-width="15" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M50 90h100M50 110h100" stroke="#fff" stroke-width="7" stroke-linecap="round"/>
+<g fill="#ffe27a"><path id="s" d="M100 28l4.5 9.5 10.5 1.2-7.8 7.2 2.2 10.3-9.4-5.2-9.4 5.2 2.2-10.3-7.8-7.2 10.5-1.2z"/><use href="#s" transform="translate(-44 14) scale(.7) rotate(-20 100 40)"/><use href="#s" transform="translate(44 14) scale(.7) rotate(20 100 40)"/></g>
+<path d="M30 160q70 34 140 0" fill="none" stroke="#ffe27a" stroke-width="5" stroke-linecap="round"/></svg>`;
+document.getElementById('hlogo').innerHTML=LOGO;
+const logoImg=new Image();logoImg.src='data:image/svg+xml;charset=utf-8,'+encodeURIComponent(LOGO);
+const cv=document.getElementById('c'),x=cv.getContext('2d'),W=1080,H=1350;
+const $=id=>document.getElementById(id);
+let photo=null;
+const GOLD='#f5c542';
+function wrap(t,maxW){const w=t.split(/\s+/),l=[];let c='';for(const a of w){const tt=c?c+' '+a:a;if(x.measureText(tt).width>maxW&&c){l.push(c);c=a}else c=tt}if(c)l.push(c);return l}
+function fit(t,font,start,min,maxW){let s=start;do{x.font=font(s);if(x.measureText(t).width<=maxW)break;s-=2}while(s>min);return s}
+function draw(){
+ const name=($('name').value.trim()||'Your Name'),pos=($('pos').value.trim()||'Your Position').toUpperCase(),st=($('state').value.trim()||'Your State').toUpperCase(),motto=$('motto').value.trim()||'Your motto goes here';
+ // background
+ let g=x.createLinearGradient(0,0,0,H);g.addColorStop(0,'#021209');g.addColorStop(.5,'#06301a');g.addColorStop(1,'#031a0c');x.fillStyle=g;x.fillRect(0,0,W,H);
+ // sunburst
+ x.save();x.translate(W/2,540);for(let i=0;i<36;i++){x.rotate(Math.PI/18);x.fillStyle=i%2?'rgba(245,197,66,.07)':'rgba(255,255,255,.025)';x.beginPath();x.moveTo(0,0);x.arc(0,0,1300,-.045,.045);x.fill()}x.restore();
+ let rg=x.createRadialGradient(W/2,540,100,W/2,540,620);rg.addColorStop(0,'rgba(30,160,80,.55)');rg.addColorStop(1,'rgba(30,160,80,0)');x.fillStyle=rg;x.fillRect(0,0,W,H);
+ // top flag stripe
+ x.fillStyle='#0a7a3a';x.fillRect(0,0,W/3,16);x.fillStyle='#fff';x.fillRect(W/3,0,W/3,16);x.fillStyle='#0a7a3a';x.fillRect(2*W/3,0,W/3,16);
+ // header
+ x.drawImage(logoImg,60,50,170,170);
+ x.textAlign='left';x.textBaseline='alphabetic';x.fillStyle='#fff';x.font='140px Anton,Impact,sans-serif';x.shadowColor='rgba(0,0,0,.6)';x.shadowBlur=12;x.fillText('CMC',255,170);
+ x.shadowBlur=0;x.fillStyle=GOLD;x.font='800 40px Montserrat,Arial,sans-serif';x.fillText('( CI MU CI )',262,222);
+ x.fillStyle='rgba(255,255,255,.75)';x.font='600 22px Montserrat,Arial,sans-serif';x.textAlign='right';x.fillText('THE PEOPLE’S PARTY',W-60,110);x.fillText('OF CHOP & CHILL',W-60,142);
+ // photo
+ const cx=W/2,cy=555,r=235;
+ x.save();x.shadowColor='rgba(0,0,0,.7)';x.shadowBlur=40;x.beginPath();x.arc(cx,cy,r+26,0,7);x.fillStyle=GOLD;x.fill();x.restore();
+ x.beginPath();x.arc(cx,cy,r+14,0,7);x.fillStyle='#06301a';x.fill();
+ x.save();x.beginPath();x.arc(cx,cy,r,0,7);x.clip();
+ if(photo){const s=Math.max(2*r/photo.width,2*r/photo.height),w=photo.width*s,h=photo.height*s;x.drawImage(photo,cx-w/2,cy-h/2,w,h)}
+ else{x.fillStyle='#0d5a2e';x.fillRect(cx-r,cy-r,2*r,2*r);x.fillStyle='rgba(255,255,255,.35)';x.beginPath();x.arc(cx,cy-40,85,0,7);x.fill();x.beginPath();x.ellipse(cx,cy+210,170,150,0,0,7);x.fill()}
+ x.restore();
+ // stars ring
+ x.fillStyle='#fff';x.font='34px Arial';x.textAlign='center';for(let i=0;i<7;i++){const a=Math.PI*(.15+.7*i/6)+Math.PI,px=cx+Math.cos(a)*(r+58),py=cy+Math.sin(a)*(r+58);x.fillText('★',px,py+12)}
+ // text
+ x.textAlign='center';x.fillStyle=GOLD;x.font='800 34px Montserrat,Arial,sans-serif';x.fillText('— VOTE FOR —',cx,865);
+ x.fillStyle='#fff';const ns=fit(name.toUpperCase(),s=>`${s}px Anton,Impact,sans-serif`,120,50,960);x.font=`${ns}px Anton,Impact,sans-serif`;x.shadowColor='rgba(0,0,0,.7)';x.shadowBlur=10;x.fillText(name.toUpperCase(),cx,865+ns*.95);x.shadowBlur=0;
+ let y=865+ns*.95+10;
+ x.fillStyle=GOLD;const ps=fit('AS '+pos,s=>`800 ${s}px Montserrat,Arial,sans-serif`,54,26,960);x.font=`800 ${ps}px Montserrat,Arial,sans-serif`;y+=ps;x.fillText('AS '+pos,cx,y);
+ x.fillStyle='#fff';const ss=fit('FROM '+st+' STATE',s=>`800 ${s}px Montserrat,Arial,sans-serif`,42,22,960);x.font=`800 ${ss}px Montserrat,Arial,sans-serif`;y+=ss+10;x.fillText('FROM '+st+' STATE',cx,y);
+ // motto
+ x.fillStyle='#d7ffe3';let ms=34;x.font=`italic 600 ${ms}px Montserrat,Arial,sans-serif`;let ml=wrap('“'+motto+'”',900);while(ml.length>2&&ms>22){ms-=2;x.font=`italic 600 ${ms}px Montserrat,Arial,sans-serif`;ml=wrap('“'+motto+'”',900)}
+ y+=20;ml.slice(0,3).forEach(l=>{y+=ms*1.25;x.fillText(l,cx,y)});
+ // banner
+ const by=1195;let bg=x.createLinearGradient(0,by,0,H);bg.addColorStop(0,'#ffe27a');bg.addColorStop(1,'#d49a0a');x.fillStyle=bg;x.fillRect(0,by,W,H-by);
+ x.fillStyle='#04210f';x.font='800 40px Montserrat,Arial,sans-serif';const hl=wrap('Ku zabe ni, zan ci kudi, na zama kato, kuma zan ba ku kudi',960);hl.forEach((l,i)=>x.fillText(l,cx,by+62+i*50));
+ x.font='600 18px Montserrat,Arial,sans-serif';x.fillStyle='rgba(4,33,15,.8)';x.fillText('CMC • Satire only • Not registered with INEC • 100% joke',cx,H-18);
+}
+function redraw(){draw()}
+['name','pos','state','motto'].forEach(i=>$(i).addEventListener('input',redraw));
+$('pic').addEventListener('change',e=>{const f=e.target.files[0];if(!f)return;const im=new Image();im.onload=()=>{photo=im;redraw();const t=$('thumb');t.src=im.src;t.style.display='block';$('droptxt').textContent='✔ '+f.name.slice(0,26)+' – tap to change'};im.src=URL.createObjectURL(f)});
+logoImg.onload=redraw;
+['President','Governor','Senator','Chairman','House of Reps','Councillor'].forEach(p=>{const s=document.createElement('span');s.textContent=p;s.onclick=()=>{$('pos').value=p;redraw()};$('chips').appendChild(s)});
+(document.fonts?Promise.all([document.fonts.load('140px Anton'),document.fonts.load('800 40px Montserrat'),document.fonts.load('italic 600 30px Montserrat')]).catch(()=>{}):Promise.resolve()).then(redraw);
+redraw();
+$('dl').addEventListener('click',async()=>{
+ redraw();
+ const blob=await new Promise(r=>cv.toBlob(r,'image/png'));
+ const fn='CMC-flyer-'+(($('name').value.trim()||'candidate').replace(/[^a-z0-9]+/gi,'-'))+'.png';
+ let d=null;try{d=await claude.use('downloads')}catch(e){}
+ if(d){try{await d.save({filename:fn,data:blob});return}catch(e){if(e&&e.code==='declined')return}}
+ const f=$('fallback');f.src=URL.createObjectURL(blob);f.style.display='block';cv.style.display='none';
+});
+</script>
+</body>
+</html>
